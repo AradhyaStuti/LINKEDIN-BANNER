@@ -82,8 +82,4 @@ You can easily customize the banner by editing `banner.html`:
 - **Code Watermark** — Edit the `.code-watermark` text content
 - **Tagline** — Modify the `.tagline` section
 
----
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
