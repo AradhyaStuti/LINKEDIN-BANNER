@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn Banner - Aradhya Stuti</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #0a0a0a;
+    padding: 20px;
+  }
+
+  .banner-wrapper {
+    width: 100%;
+    max-width: 1584px;
+    aspect-ratio: 1584 / 396;
+    position: relative;
+  }
+
+  .banner {
+    width: 1584px;
+    height: 396px;
+    position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Inter', sans-serif;
+    transform-origin: top left;
+  }
+
+  /* === BACKGROUND — dark with subtle blue tint === */
+  .bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(110deg, #000 0%, #000 18%, #04080f 40%, #060d18 55%, #04080f 75%, #000 88%, #000 100%);
+    z-index: 0;
+  }
+
+  /* Accent glow behind content — subtle, not shimmery */
+  .glow {
+    position: absolute;
+    top: 50%; left: 57%;
+    transform: translate(-50%, -50%);
+    width: 650px; height: 300px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 70%);
+    z-index: 1;
+  }
+
+  /* === PHOTO 1 — clear of profile pic === */
+  .photo-1 {
+    position: absolute;
+    left: 280px; top: 0;
+    width: 270px; height: 100%;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .photo-1 img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    filter: grayscale(40%) contrast(1.05) brightness(0.8);
+  }
+  .photo-1::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 130px; height: 100%;
+    background: linear-gradient(to left, #000, transparent);
+  }
+  .photo-1::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 90px; height: 100%;
+    background: linear-gradient(to right, #000, transparent);
+    z-index: 1;
+  }
+
+  /* === PHOTO 2 — right === */
+  .photo-2 {
+    position: absolute;
+    right: 0; top: 0;
+    width: 280px; height: 100%;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .photo-2 img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 8%;
+    filter: grayscale(40%) contrast(1.05) brightness(0.8);
+  }
+  .photo-2::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 130px; height: 100%;
+    background: linear-gradient(to right, #000, transparent);
+  }
+
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: #080808;
+    color: rgba(255,255,255,0.08);
+    font-size: 11px; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* === LEFT ZONE — AI/tech decorative art === */
+  .left-art {
+    position: absolute;
+    left: 0; top: 0;
+    width: 280px; height: 100%;
+    z-index: 3;
+    overflow: hidden;
+  }
+
+  .left-art svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* Faint code watermark */
+  .code-watermark {
+    position: absolute;
+    left: 18px; top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    line-height: 1.9;
+    color: rgba(59,130,246,0.6);
+    z-index: 4;
+    white-space: pre;
+    pointer-events: none;
+  }
+
+  /* Bracket accent */
+  .bracket-art {
+    position: absolute;
+    left: 20px; bottom: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(59,130,246,0.5);
+    z-index: 4;
+    line-height: 1;
+    letter-spacing: 6px;
+  }
+
+  /* === CONTENT === */
+  .content {
+    position: absolute;
+    left: 57%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: 600px;
+  }
+
+  /* Top accent — blue line */
+  .accent-top {
+    width: 40px;
+    height: 3px;
+    background: #3b82f6;
+    margin: 0 auto 14px;
+    border-radius: 2px;
+  }
+
+  .name {
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .name .last {
+    color: #3b82f6;
+  }
+
+  .underline {
+    width: 50px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    margin: 0 auto 14px;
+    opacity: 0.5;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d1d5db;
+    white-space: nowrap;
+  }
+
+  .title-row .sep {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #3b82f6;
+    margin: 0 12px;
+    display: inline-block;
+  }
+
+  .skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .skill {
+    padding: 4px 13px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 3px;
+  }
+
+  .skill.blue {
+    background: #3b82f6;
+    color: #fff;
+  }
+
+  .skill.dark {
+    background: #141414;
+    color: #ccc;
+    border: 1px solid #2a2a2a;
+  }
+
+  .tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 0.5px;
+  }
+  .tagline .em { color: #999; }
+
+  /* Bottom accent bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent 15%, #3b82f6 40%, #2563eb 60%, transparent 85%);
+    z-index: 20;
+  }
+
+  /* === INSTRUCTIONS === */
+  .instructions {
+    margin-top: 40px;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    width: 100%; max-width: 850px;
+    line-height: 2.2;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 22px 32px;
+  }
+  .instructions strong { color: #ccc; }
+  .instructions code {
+    background: #1a1a1a;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #888;
+    border: 1px solid #2a2a2a;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner-wrapper" id="wrapper">
+<div class="banner" id="banner">
+
+  <div class="bg"></div>
+  <div class="glow"></div>
+
+  <!-- Left zone — AI/tech art (behind LinkedIn profile pic) -->
+  <div class="left-art">
+    <svg viewBox="0 0 280 396" xmlns="http://www.w3.org/2000/svg">
+      <!-- Neural network nodes — only below y:220 (clear of code text) -->
+      <circle cx="45" cy="240" r="4" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="170" cy="250" r="4.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
+      <circle cx="240" cy="230" r="3.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
+      <circle cx="80" cy="310" r="3.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="200" cy="320" r="4" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="130" cy="370" r="3" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
+      <circle cx="260" cy="360" r="3.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
+
+      <!-- Filled center dots -->
+      <circle cx="45" cy="240" r="1.5" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="170" cy="250" r="1.5" fill="#3b82f6" opacity="0.65"/>
+      <circle cx="240" cy="230" r="1.5" fill="#3b82f6" opacity="0.6"/>
+      <circle cx="80" cy="310" r="1.5" fill="#3b82f6" opacity="0.65"/>
+      <circle cx="200" cy="320" r="1.5" fill="#3b82f6" opacity="0.6"/>
+      <circle cx="130" cy="370" r="1.5" fill="#3b82f6" opacity="0.65"/>
+      <circle cx="260" cy="360" r="1.5" fill="#3b82f6" opacity="0.55"/>
+
+      <!-- Connection lines — all below text zone -->
+      <line x1="45" y1="240" x2="170" y2="250" stroke="#3b82f6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="170" y1="250" x2="240" y2="230" stroke="#3b82f6" stroke-width="1.2" opacity="0.35"/>
+      <line x1="45" y1="240" x2="80" y2="310" stroke="#3b82f6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="170" y1="250" x2="80" y2="310" stroke="#3b82f6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="170" y1="250" x2="200" y2="320" stroke="#3b82f6" stroke-width="1.2" opacity="0.35"/>
+      <line x1="240" y1="230" x2="200" y2="320" stroke="#3b82f6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="80" y1="310" x2="130" y2="370" stroke="#3b82f6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="200" y1="320" x2="130" y2="370" stroke="#3b82f6" stroke-width="1.2" opacity="0.35"/>
+      <line x1="200" y1="320" x2="260" y2="360" stroke="#3b82f6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="240" y1="230" x2="260" y2="360" stroke="#3b82f6" stroke-width="1.2" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <!-- Faint code in top-left -->
+  <div class="code-watermark">model = Sequential()
+model.add(Dense(128))
+model.compile(loss='mse')
+
+app.get('/api', (req, res)
+  =&gt; res.json(data))
+
+git push origin main
+docker build -t app .</div>
+
+  <!-- Big bracket art bottom-left -->
+  <div class="bracket-art">&lt;/&gt;</div>
+
+  <!-- Photo 1 -->
+  <div class="photo-1">
+    <img src="photo1.jpeg" alt="Aradhya Stuti"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="photo-placeholder" style="display:none;">PHOTO 1<br>photo1.jpeg</div>
+  </div>
+
+  <!-- Photo 2 -->
+  <div class="photo-2">
+    <img src="photo2.jpeg" alt="Aradhya Stuti"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="photo-placeholder" style="display:none;">PHOTO 2<br>photo2.jpeg</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="accent-top"></div>
+    <div class="name">Aradhya <span class="last">Stuti</span></div>
+    <div class="underline"></div>
+    <div class="title-row">
+      <span>AI / ML Engineer</span>
+      <span class="sep"></span>
+      <span>Full Stack Developer</span>
+      <span class="sep"></span>
+      <span>IEEE Published Author</span>
+    </div>
+    <div class="skills">
+      <span class="skill blue">Gen AI</span>
+      <span class="skill blue">Deep Learning</span>
+      <span class="skill blue">LLMs</span>
+      <span class="skill blue">RAG</span>
+      <span class="skill dark">MERN Stack</span>
+      <span class="skill dark">Python</span>
+      <span class="skill dark">Docker</span>
+      <span class="skill dark">Git/GitHub</span>
+      <span class="skill dark">CI/CD</span>
+      <span class="skill dark">REST APIs</span>
+    </div>
+    <div class="tagline">
+      <span class="em">Building intelligent systems</span> &mdash; one model at a time
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</div>
+</div>
+
+<div class="instructions">
+  <strong>Setup:</strong><br>
+  1. Save certificate photo as <code>photo1.jpeg</code> &rarr; left side<br>
+  2. Save speaking photo as <code>photo2.jpeg</code> &rarr; right side<br>
+  3. <strong>Chrome</strong> &rarr; <code>F12</code> &rarr; right-click <code>.banner</code> &rarr; <strong>Capture node screenshot</strong><br>
+  4. Upload to LinkedIn banner
+</div>
+
+<script>
+  function scaleBanner() {
+    var w = document.getElementById('wrapper');
+    var b = document.getElementById('banner');
+    b.style.transform = 'scale(' + Math.min(w.offsetWidth / 1584, 1) + ')';
+  }
+  window.addEventListener('load', scaleBanner);
+  window.addEventListener('resize', scaleBanner);
+</script>
+
+</body>
+</html>
