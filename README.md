@@ -1,60 +1,69 @@
+
 # LinkedIn Banner Generator
 
-A lightweight, single-file web tool that generates a professional **1584x396px** LinkedIn banner tailored for a tech/AI professional profile.
+A lightweight web tool to create a **professional LinkedIn banner (1584 × 396 px)** for tech and AI-focused profiles.
 
-Built with pure **HTML5**, **CSS3**, **JavaScript**, and **inline SVG** — no frameworks, no dependencies.
+Built using **pure HTML, CSS, JavaScript, and inline SVG** — no frameworks or external dependencies.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![SVG](https://img.shields.io/badge/SVG-FFB13B?style=flat&logo=svg&logoColor=black)
+---
+
+## Overview
+
+This project generates a modern, dark-themed LinkedIn banner featuring a clean tech aesthetic with subtle visual elements like neural network graphics, skill highlights, and dual image placeholders.
+
+It is designed to help developers quickly create a strong personal branding banner without using design tools.
 
 ---
 
 ## Features
 
-- **Dark-themed design** with subtle blue accent glow
-- **SVG neural network art** with nodes and connection lines
-- **Code watermark** overlay in JetBrains Mono font
-- **Dual photo slots** with grayscale filters and gradient blending
-- **Skill badges** — categorized as highlighted (blue) and secondary (dark)
-- **Responsive scaling** — adapts to any screen size via JS
-- **Google Fonts** — Inter for UI text, JetBrains Mono for code
+* Dark-themed professional layout with blue accent styling
+* Inline SVG-based neural network illustration
+* Code-style watermark using JetBrains Mono
+* Dual image slots with smooth blending and grayscale effects
+* Skill badges with clear visual hierarchy (primary & secondary)
+* Fully responsive scaling using vanilla JavaScript
+* Uses Google Fonts (Inter + JetBrains Mono)
 
 ---
 
 ## Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| HTML5 | Semantic structure, image handling |
-| CSS3 | Flexbox, gradients, filters, pseudo-elements, transforms |
-| JavaScript | Responsive banner scaling via DOM manipulation |
-| SVG | Inline vector graphics for neural network visualization |
-| Google Fonts | Inter, JetBrains Mono |
+| Technology   | Purpose                                         |
+| ------------ | ----------------------------------------------- |
+| HTML5        | Structure and layout                            |
+| CSS3         | Styling, gradients, effects, and responsiveness |
+| JavaScript   | Dynamic scaling and rendering logic             |
+| SVG          | Neural network visualization                    |
+| Google Fonts | Typography (Inter, JetBrains Mono)              |
 
 ---
 
 ## How to Use
 
 1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/linkedin-banner.git
-   cd linkedin-banner
-   ```
 
-2. Add your photos
-   - Save your first photo as `photo1.jpeg` (appears on the left)
-   - Save your second photo as `photo2.jpeg` (appears on the right)
+```bash
+git clone https://github.com/your-username/linkedin-banner.git
+cd linkedin-banner
+```
 
-3. Open `banner.html` in **Google Chrome**
+2. Add your images
 
-4. Capture the banner
-   - Press `F12` to open DevTools
-   - Right-click the `.banner` element in the Elements panel
-   - Select **Capture node screenshot**
+* Save your first image as `photo1.jpeg` (left side)
+* Save your second image as `photo2.jpeg` (right side)
 
-5. Upload the screenshot as your LinkedIn banner
+3. Open the file
+
+* Open `banner.html` in any modern browser (recommended: Chrome)
+
+4. Export the banner
+
+* Open DevTools (`F12`)
+* Right-click the banner element
+* Select **“Capture node screenshot”**
+
+5. Upload the exported image to LinkedIn as your banner
 
 ---
 
@@ -62,10 +71,10 @@ Built with pure **HTML5**, **CSS3**, **JavaScript**, and **inline SVG** — no f
 
 ```
 linkedin-banner/
-├── banner.html      # Single-file banner generator (HTML + CSS + JS)
-├── photo1.jpeg      # Left photo slot (user-provided)
-├── photo2.jpeg      # Right photo slot (user-provided)
-├── .gitignore       # Ignores photo files
+├── banner.html      # Main banner generator (single-file app)
+├── photo1.jpeg      # Left profile image
+├── photo2.jpeg      # Right profile image
+├── .gitignore       # Ignores local images
 └── README.md
 ```
 
@@ -73,7 +82,7 @@ linkedin-banner/
 
 ## Customization
 
-You can easily customize the banner by editing `banner.html`:
+You can easily personalize the banner by editing `banner.html`:
 
 - **Name & Title** — Update the `.name` and `.title-row` sections
 - **Skills** — Add or remove `.skill` badges
@@ -82,4 +91,8 @@ You can easily customize the banner by editing `banner.html`:
 - **Code Watermark** — Edit the `.code-watermark` text content
 - **Tagline** — Modify the `.tagline` section
 
+---
 
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
