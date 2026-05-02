@@ -1,80 +1,75 @@
-
 # LinkedIn Banner Generator
 
-A lightweight web tool to create a **professional LinkedIn banner (1584 × 396 px)** for tech and AI-focused profiles.
+A small browser-based tool for putting together a clean LinkedIn banner (1584 x 396 px). Mostly built with tech / AI profiles in mind.
 
-Built using **pure HTML, CSS, JavaScript, and inline SVG** — no frameworks or external dependencies.
+I made this because I kept opening Figma every time I wanted to refresh my banner, which felt like overkill. So now it's just an HTML file you tweak and screenshot.
+
+No build step, no dependencies. Open it and go.
 
 ---
 
-## Overview
+## What it does
 
-This project generates a modern, dark-themed LinkedIn banner featuring a clean tech aesthetic with subtle visual elements like neural network graphics, skill highlights, and dual image placeholders.
+Generates a dark banner with a modern dev-ish look. Soft background, a bit of decorative SVG, two photo slots, and a row of skill tags in the middle.
 
-It is designed to help developers quickly create a strong personal branding banner without using design tools.
+It's locked to LinkedIn's banner dimensions, so you don't need to mess with sizing.
 
 ---
 
 ## Features
 
-* Dark-themed professional layout with blue accent styling
-* Inline SVG-based neural network illustration
-* Code-style watermark using JetBrains Mono
-* Dual image slots with smooth blending and grayscale effects
-* Skill badges with clear visual hierarchy (primary & secondary)
-* Fully responsive scaling using vanilla JavaScript
-* Uses Google Fonts (Inter + JetBrains Mono)
+* Dark theme with a blue accent (one color to swap if you want a different vibe)
+* Inline SVG background, small neural-network style graphic
+* Faint code watermark for the developer feel
+* Two photo slots with grayscale + edge fade
+* Skill badges in two visual tiers
+* Runs straight in the browser, no build step
+* Inter + JetBrains Mono via Google Fonts
 
 ---
 
-## Tech Stack
+## Tech stack
 
-| Technology   | Purpose                                         |
-| ------------ | ----------------------------------------------- |
-| HTML5        | Structure and layout                            |
-| CSS3         | Styling, gradients, effects, and responsiveness |
-| JavaScript   | Dynamic scaling and rendering logic             |
-| SVG          | Neural network visualization                    |
-| Google Fonts | Typography (Inter, JetBrains Mono)              |
+* HTML, CSS, a few lines of vanilla JS
+* Inline SVG for the visuals
+* Google Fonts for typography
 
 ---
 
-## How to Use
+## How to use
 
-1. Clone the repository
+1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/linkedin-banner.git
-cd linkedin-banner
+git clone https://github.com/AradhyaStuti/LINKEDIN-BANNER.git
+cd LINKEDIN-BANNER
 ```
 
-2. Add your images
+2. Drop in your photos
 
-* Save your first image as `photo1.jpeg` (left side)
-* Save your second image as `photo2.jpeg` (right side)
+* `photo1.jpeg` shows up on the left
+* `photo2.jpeg` shows up on the right
 
-3. Open the file
+3. Open `banner.html` in a browser. Chrome works best for the next step.
 
-* Open `banner.html` in any modern browser (recommended: Chrome)
-
-4. Export the banner
+4. Export the image
 
 * Open DevTools (`F12`)
-* Right-click the banner element
-* Select **“Capture node screenshot”**
+* Right-click on the `.banner` element in the inspector
+* Pick **"Capture node screenshot"**
 
-5. Upload the exported image to LinkedIn as your banner
+5. Upload that screenshot as your LinkedIn banner.
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 linkedin-banner/
-├── banner.html      # Main banner generator (single-file app)
-├── photo1.jpeg      # Left profile image
-├── photo2.jpeg      # Right profile image
-├── .gitignore       # Ignores local images
+├── banner.html
+├── photo1.jpeg
+├── photo2.jpeg
+├── .gitignore
 └── README.md
 ```
 
@@ -82,17 +77,11 @@ linkedin-banner/
 
 ## Customization
 
-You can easily personalize the banner by editing `banner.html`:
+Everything lives in `banner.html`, so it's all in one place:
 
-- **Name & Title** — Update the `.name` and `.title-row` sections
-- **Skills** — Add or remove `.skill` badges
-- **Colors** — Change the accent color `#3b82f6` to your preference
-- **Photos** — Adjust `object-position`, `filter`, and overlay gradients
-- **Code Watermark** — Edit the `.code-watermark` text content
-- **Tagline** — Modify the `.tagline` section
-
----
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+* Change the name and titles in the text section
+* Add or remove skill badges
+* Swap the accent color (`#3b82f6` everywhere)
+* Adjust the photo crop or filters
+* Edit the watermark code snippet
+* Change the tagline at the bottom
