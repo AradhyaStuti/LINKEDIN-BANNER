@@ -17,6 +17,7 @@
     padding: 20px;
   }
 
+  /* wrapper. holds the ratio when the page gets narrow */
   .banner-wrapper {
     width: 100%;
     max-width: 1584px;
@@ -24,6 +25,7 @@
     position: relative;
   }
 
+  /* fixed-size banner. JS scales it down when needed */
   .banner {
     width: 1584px;
     height: 396px;
@@ -35,7 +37,7 @@
     transform-origin: top left;
   }
 
-  /* === BACKGROUND — dark with subtle blue tint === */
+  /* main bg, dark with a tiny blue hint near the middle */
   .bg {
     position: absolute;
     top: 0; left: 0;
@@ -44,7 +46,7 @@
     z-index: 0;
   }
 
-  /* Accent glow behind content — subtle, not shimmery */
+  /* glow behind the name. keep this faint, not flashy */
   .glow {
     position: absolute;
     top: 50%; left: 57%;
@@ -54,7 +56,7 @@
     z-index: 1;
   }
 
-  /* === PHOTO 1 — clear of profile pic === */
+  /* left photo. starts at 280px so the LI profile circle doesn't sit on it */
   .photo-1 {
     position: absolute;
     left: 280px; top: 0;
@@ -68,6 +70,7 @@
     object-position: center 10%;
     filter: grayscale(40%) contrast(1.05) brightness(0.8);
   }
+  /* right edge fade so the photo dies into the bg */
   .photo-1::after {
     content: '';
     position: absolute;
@@ -75,6 +78,7 @@
     width: 130px; height: 100%;
     background: linear-gradient(to left, #000, transparent);
   }
+  /* same idea on the left edge */
   .photo-1::before {
     content: '';
     position: absolute;
@@ -84,7 +88,7 @@
     z-index: 1;
   }
 
-  /* === PHOTO 2 — right === */
+  /* right photo */
   .photo-2 {
     position: absolute;
     right: 0; top: 0;
@@ -106,6 +110,7 @@
     background: linear-gradient(to right, #000, transparent);
   }
 
+  /* fallback box if the jpeg is missing */
   .photo-placeholder {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
@@ -115,7 +120,7 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* === LEFT ZONE — AI/tech decorative art === */
+  /* left side art zone (the network nodes svg) */
   .left-art {
     position: absolute;
     left: 0; top: 0;
@@ -130,7 +135,7 @@
     width: 100%; height: 100%;
   }
 
-  /* Faint code watermark */
+  /* fake code snippet up top, just for vibes */
   .code-watermark {
     position: absolute;
     left: 18px; top: 24px;
@@ -143,7 +148,7 @@
     pointer-events: none;
   }
 
-  /* Bracket accent */
+  /* big </> in the bottom corner */
   .bracket-art {
     position: absolute;
     left: 20px; bottom: 28px;
@@ -156,7 +161,7 @@
     letter-spacing: 6px;
   }
 
-  /* === CONTENT === */
+  /* center text block, name + title + skills */
   .content {
     position: absolute;
     left: 57%;
@@ -167,7 +172,7 @@
     width: 600px;
   }
 
-  /* Top accent — blue line */
+  /* small blue bar above the name */
   .accent-top {
     width: 40px;
     height: 3px;
@@ -211,6 +216,7 @@
     white-space: nowrap;
   }
 
+  /* dot between titles */
   .title-row .sep {
     width: 5px; height: 5px;
     border-radius: 50%;
@@ -256,7 +262,7 @@
   }
   .tagline .em { color: #999; }
 
-  /* Bottom accent bar */
+  /* thin gradient line pinned to the bottom edge */
   .bottom-bar {
     position: absolute;
     bottom: 0; left: 0;
@@ -265,7 +271,7 @@
     z-index: 20;
   }
 
-  /* === INSTRUCTIONS === */
+  /* help box under the banner. not part of the export */
   .instructions {
     margin-top: 40px;
     color: #666;
@@ -299,10 +305,10 @@
   <div class="bg"></div>
   <div class="glow"></div>
 
-  <!-- Left zone — AI/tech art (behind LinkedIn profile pic) -->
+  <!-- left zone art, sits behind the LI profile pic -->
   <div class="left-art">
     <svg viewBox="0 0 280 396" xmlns="http://www.w3.org/2000/svg">
-      <!-- Neural network nodes — only below y:220 (clear of code text) -->
+      <!-- network nodes. all kept under y=220 so they don't overlap the code text -->
       <circle cx="45" cy="240" r="4" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
       <circle cx="170" cy="250" r="4.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
       <circle cx="240" cy="230" r="3.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
@@ -311,7 +317,7 @@
       <circle cx="130" cy="370" r="3" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
       <circle cx="260" cy="360" r="3.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
 
-      <!-- Filled center dots -->
+      <!-- inner dots so the nodes look filled -->
       <circle cx="45" cy="240" r="1.5" fill="#3b82f6" opacity="0.7"/>
       <circle cx="170" cy="250" r="1.5" fill="#3b82f6" opacity="0.65"/>
       <circle cx="240" cy="230" r="1.5" fill="#3b82f6" opacity="0.6"/>
@@ -320,7 +326,7 @@
       <circle cx="130" cy="370" r="1.5" fill="#3b82f6" opacity="0.65"/>
       <circle cx="260" cy="360" r="1.5" fill="#3b82f6" opacity="0.55"/>
 
-      <!-- Connection lines — all below text zone -->
+      <!-- lines wiring the nodes together -->
       <line x1="45" y1="240" x2="170" y2="250" stroke="#3b82f6" stroke-width="1.2" opacity="0.4"/>
       <line x1="170" y1="250" x2="240" y2="230" stroke="#3b82f6" stroke-width="1.2" opacity="0.35"/>
       <line x1="45" y1="240" x2="80" y2="310" stroke="#3b82f6" stroke-width="1.2" opacity="0.4"/>
@@ -334,7 +340,7 @@
     </svg>
   </div>
 
-  <!-- Faint code in top-left -->
+  <!-- top-left snippet, just decoration -->
   <div class="code-watermark">model = Sequential()
 model.add(Dense(128))
 model.compile(loss='mse')
@@ -345,24 +351,24 @@ app.get('/api', (req, res)
 git push origin main
 docker build -t app .</div>
 
-  <!-- Big bracket art bottom-left -->
+  <!-- big </> in the corner -->
   <div class="bracket-art">&lt;/&gt;</div>
 
-  <!-- Photo 1 -->
+  <!-- left photo. has a fallback if the file isn't there -->
   <div class="photo-1">
     <img src="photo1.jpeg" alt="Aradhya Stuti"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
     <div class="photo-placeholder" style="display:none;">PHOTO 1<br>photo1.jpeg</div>
   </div>
 
-  <!-- Photo 2 -->
+  <!-- right photo -->
   <div class="photo-2">
     <img src="photo2.jpeg" alt="Aradhya Stuti"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
     <div class="photo-placeholder" style="display:none;">PHOTO 2<br>photo2.jpeg</div>
   </div>
 
-  <!-- Content -->
+  <!-- middle text block -->
   <div class="content">
     <div class="accent-top"></div>
     <div class="name">Aradhya <span class="last">Stuti</span></div>
@@ -398,17 +404,19 @@ docker build -t app .</div>
 
 <div class="instructions">
   <strong>Setup:</strong><br>
-  1. Save certificate photo as <code>photo1.jpeg</code> &rarr; left side<br>
-  2. Save speaking photo as <code>photo2.jpeg</code> &rarr; right side<br>
+  1. Save your certificate photo as <code>photo1.jpeg</code> &rarr; left side<br>
+  2. Save your speaking photo as <code>photo2.jpeg</code> &rarr; right side<br>
   3. <strong>Chrome</strong> &rarr; <code>F12</code> &rarr; right-click <code>.banner</code> &rarr; <strong>Capture node screenshot</strong><br>
-  4. Upload to LinkedIn banner
+  4. Upload as your LinkedIn banner
 </div>
 
 <script>
+  // shrink the banner if the viewport is smaller than 1584px. don't upscale.
   function scaleBanner() {
-    var w = document.getElementById('wrapper');
-    var b = document.getElementById('banner');
-    b.style.transform = 'scale(' + Math.min(w.offsetWidth / 1584, 1) + ')';
+    var wrap = document.getElementById('wrapper');
+    var banner = document.getElementById('banner');
+    var scale = Math.min(wrap.offsetWidth / 1584, 1);
+    banner.style.transform = 'scale(' + scale + ')';
   }
   window.addEventListener('load', scaleBanner);
   window.addEventListener('resize', scaleBanner);
