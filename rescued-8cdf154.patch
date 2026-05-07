@@ -1,0 +1,23 @@
+From 8cdf154e0378cf0c466b85864d12c3a5a37bd332 Mon Sep 17 00:00:00 2001
+From: Aradhya Stuti <aradhya.mutants@gmail.com>
+Date: Sat, 18 Apr 2026 23:06:10 +0530
+Subject: [PATCH] Update README
+
+---
+ README.md | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/README.md b/README.md
+index 64dc556..6c91b0e 100644
+--- a/README.md
++++ b/README.md
+@@ -90,9 +90,3 @@ You can easily personalize the banner by editing `banner.html`:
+ - **Photos** — Adjust `object-position`, `filter`, and overlay gradients
+ - **Code Watermark** — Edit the `.code-watermark` text content
+ - **Tagline** — Modify the `.tagline` section
+-
+----
+-
+-## License
+-
+-This project is open source and available under the [MIT License](LICENSE).
